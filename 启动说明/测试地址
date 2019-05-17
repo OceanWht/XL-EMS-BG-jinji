@@ -1,0 +1,17 @@
+地址：http://localhost:8080/user/login?name=wztyf&pass=123456
+返回：
+地址：http://localhost:8080/test/GetDataCode
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"dataid":"1","dataname":"天燃气","datacode":"2001","pdata":"0"},{"dataid":"2","dataname":"氢气","datacode":"2002","pdata":"0"},{"dataid":"3","dataname":"二氧化碳","datacode":"3001","pdata":"0"},{"dataid":"4","dataname":"氮气","datacode":"3002","pdata":"0"},{"dataid":"5","dataname":"水","datacode":"1000","pdata":"0"},{"dataid":"6","dataname":"回用水","datacode":"1001","pdata":"0"}]}
+地址：http://localhost:8080/test/GetUnitLinkByDataType?uid=201711&io=1&dt=5
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"uid":"201711","ut":1,"name":"维智泰测试平台","on":0,"udt":"20181121162431","cu":[{"uid":"213445","ut":10,"name":"1#厂区","childunitid":213445,"parentunitid":201711,"on":0,"udt":"2018-12-28 13:52:45","cu":[{"uid":"213447","ut":10,"name":"1#车间","childunitid":213447,"parentunitid":213445,"on":0,"udt":"2018-12-28 14:08:32","cu":[]},{"uid":"213448","ut":10,"name":"2#车间","childunitid":213448,"parentunitid":213445,"on":0,"udt":"2018-12-28 14:10:05","cu":[]}]},{"uid":"213464","ut":10,"name":"2#厂区","childunitid":213464,"parentunitid":201711,"on":0,"udt":"2018-12-28 14:47:14","cu":[{"uid":"213465","ut":10,"name":"1#车间","childunitid":213465,"parentunitid":213464,"on":0,"udt":"2018-12-28 14:47:53","cu":[]},{"uid":"213466","ut":10,"name":"2#车间","childunitid":213466,"parentunitid":213464,"on":0,"udt":"2018-12-28 14:48:05","cu":[]}]},{"uid":"216120","ut":10,"name":"3#厂区","childunitid":216120,"parentunitid":201711,"on":0,"udt":"2019-01-14 15:47:44","cu":[]}]}]}
+地址：http://localhost:8080/test/GetUnitCalcGroup?uid=201711&io=1&dataid=5
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"uid":201711,"uname":"维智泰测试平台","ioo":1,"groupid":27,"groupname":"企业水计算组","dataid":5,"dataname":"水","datacode":"1000","duname":"立方米","duCode":17}]}
+地址：http://localhost:8080/test/GetGroupAnalog?groupid=27
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"analogname":"累计量","analogid":236200,"sym":1,"coe":1.0000,"sdt":10101,"edt":99991231}]}
+
+地址：http://localhost:8080/test/GetDidByAnalogId?aid=236200
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"did":"335226","aid":"236200"}]}
+
+地址：http://localhost:8080/test/GetMeterArchive?did=335226
+返回：{"header":{"status":0,"msg":"","encrypt":0},"body":[{"did":335226,"dt":"AMS.Monitoring.Converter.SenserDevice","name":"企业总水表","add":"000000000006","ide":null,"sta":0,"on":335226,"Local":"0,0","tain":1.0,"taout":1,"tvin":1,"tvout":1,"cp":1,"mcur":null,"Measuredpoint":1,"InnerTA":1.0,"VModeDeviceType":"","ModelType":"","Aaddr":"","Baddr":"","Caddr":"","VirtualAddress":null,"isDsm":"O","fa":null,"mo":null,"acq":null,"ww":"0","rcur":null,"rvol":null,"isfee":null,"vg":null,"pid":335138,"pname":"117000036964","type":null,"InstallAddress":"","Remark":"","PowerFeature":"","VoltageLevle":null}]}
+
