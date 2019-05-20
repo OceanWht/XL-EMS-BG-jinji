@@ -34,6 +34,10 @@ public class EERService {
 		return dao.paginate(1, 100, "select id,dt as mon,consumption as consumption ", "from eer_base where char_length(dt)=7  and cast(left(dt,4) as signed) >= cast(left(\'"+sdt+"\',4) as signed) and cast(right(dt,2) as signed) >= cast(right(\'"+sdt+"\',2) as signed) and  cast(left(dt,4) as signed) <= cast(left(\'"+edt+"\',4) as signed) and  cast(right(dt,2) as signed) <= cast(right(\'"+edt+"\',2) as signed) and dtype=\'"+dtype+"\' and uid=\'"+uid+"\'  and  userid=\'"+userid+"\'  group by dt  order by dt asc");
 	}
 
+	public Page<EerBase> ypaginate(String year,String dtype,String userid,String uid) {
+		return dao.paginate(1, 100, "select id,dt as year,consumption as consumption ", "from eer_base where char_length(dt)=4  and dt="+year+" and dtype=\'"+dtype+"\' and uid=\'"+uid+"\'  and  userid=\'"+userid+"\'  group by dt  order by dt asc");
+	}
+
 	public Page<EerCoal> cpaginate(int pageNumber, int pageSize,String dtype,String userid) {
 		return cdao.paginate(pageNumber, pageSize, "select *", "from eer_coal where  dtype='"+dtype+"' and userid='"+userid+"'");
 	}

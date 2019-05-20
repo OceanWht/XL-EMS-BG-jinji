@@ -49,6 +49,16 @@ import java.util.List;
 		renderJson();
 	}
 
+	public void eeryearbaselist() {
+		String year = getPara("year");//+"-01"
+		String dtype = getPara("dtype");
+		String uid = getPara("uid");
+		String uid1 = getUID();
+		Page<EerBase> list =  service.ypaginate(year,dtype,getUID(),uid);
+		setDefaultAtt(0,"",list.getTotalRow(),list.getList());
+		renderJson();
+	}
+
 	public void  eerbaseadd() throws ParseException {
 
 		String jsonString = HttpKit.readData(getRequest());
