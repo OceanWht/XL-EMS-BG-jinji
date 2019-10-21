@@ -3,6 +3,8 @@ package com.ems.test;
 
 import com.ems.common.BaseController;
 import com.ems.common.EmsInterceptor;
+import com.ems.dnyapi.DNYAPI;
+import com.ems.dnyapi.DNYUser;
 import com.ems.dnyapi.GetWaterData;
 import com.jfinal.aop.Before;
 
@@ -86,7 +88,16 @@ public class TestController extends BaseController {
 		renderHtml("html");
 	}
 
-
+	public void test1111(){
+		String token = "wNXqqND0nw4eyHT1-2V10vP6H_82BvfpCK1jE9lRnC4kFOqHRfh6ejsPDAeRAWbRG9SyiBRw8a_heCVOHIfWbWaMhy7YN88aEDztd0FuVWfSSHFuEqdrBoPOk7AIyZdqvBoMP-YtRF_OULwvv9A3Q-cLt0CU4PzR1uXAEvH--E-JqAynTcVIZ3Gm0iqyhgbRFDQdAaA5YRAEvxkNWfj-m-nBZrLXCJPRyaxdBpaRPKYP-A93O6UXrplvBl-Kg5-C0G5QOejRDtAEFxDxL6CwvO4T3MnyWVIaIuCqDx-9_Te9a2YRbwqQrweDqesXl-mm4s_LzT15r0HomIlN4FX50Q";
+		String res = DNYAPI.GetDataCode(token);
+		System.out.println(res);
+		String name = "xl1";
+		String pwd = "klklkl";
+		DNYUser dnyUser = DNYAPI.Login(name,pwd);
+		System.out.println(dnyUser);
+		renderJson();
+	}
 
 }
 

@@ -276,13 +276,7 @@ public class GetWaterData {
             unitlink.setUserid(user.getUid());
             unitlink.setDataid(datacode.getDataid());
             unitlink.setIo(io);
-            //去重
-            List<XlUnitlink> unitlinkList = service.queryUnitLink(unitlink);
-            if (unitlinkList != null && unitlinkList.size() != 0) {
-                continue;
-            } else {
-                unitlink.save();
-            }
+            unitlink.save();
 
             if (cujo.containsKey("cu")) {
                 dealUnitLink(user, datacode, io, cujo);

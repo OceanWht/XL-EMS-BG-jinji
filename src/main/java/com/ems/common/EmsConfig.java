@@ -3,6 +3,7 @@ package com.ems.common;
 import com.ems.common.model.MappingKit;
 import com.ems.eer.EERController;
 import com.ems.electric.ElectricController;
+import com.ems.job.GetPlatFormCompany;
 import com.ems.job.GetUserToken;
 import com.ems.moudles.MoudlesController;
 import com.ems.test.TestController;
@@ -121,7 +122,7 @@ public class EmsConfig extends JFinalConfig {
 		cp.addTask("1,15,30,45 * * * *", new com.ems.job.GetWarningData());//获取预警数据
 		//cp.addTask("*/9 * * * *", new com.ems.job.GetWarningData());
 	//	cp.addTask("1,15,30,45 * * * *", new GetPlatFormCompany());//获取账号数据
-		//cp.addTask("*/5 * * * *", new GetPlatFormCompany());
+		cp.addTask("1 1 * * *", new GetPlatFormCompany());
 		cp.addTask("1 1 * * *", new GetUserToken());//模拟用户登录
 		//cp.addTask("*/30 * * * *", new GetUserToken());
 
