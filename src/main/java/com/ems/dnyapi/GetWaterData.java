@@ -81,6 +81,8 @@ public class GetWaterData {
         LOGGER.info("GetWaterData getBaseData begin....");
         users = uservice.findAllUser();
         List<XlDatacode> datacodes;
+        //获取企业档案
+        GetPlatFormCompany();
 
         for (Userinfo user : users) {
 
@@ -109,7 +111,7 @@ public class GetWaterData {
 
     public void GetPlatFormCompany() {
 
-        String resp = DNYAPI.GetAccountFeePublic(service.getUids());
+        String resp = DNYAPI.GetAccountFeePublic(service.getUIDs());
 
         if (!JSON.parseObject(resp).getJSONArray("body").isEmpty()) {
             // service.deleteAccount();
@@ -205,6 +207,7 @@ public class GetWaterData {
             System.out.println("user"+ user);
             return null;
         }*/
+
         String resp = DNYAPI.GetDataCode(user.getToken());
 
         if (!JSON.parseObject(resp).getJSONArray("body").isEmpty()) {
@@ -242,13 +245,32 @@ public class GetWaterData {
  			return null;
         } */
         for (XlDatacode datacode : datacodes) {
+            System.out.println("删除deleteUnitLink========================================" +
+                    "==========================删除deleteUnitLink=============================================" +
+                    "==========================删除deleteUnitLink=============================================" +
+                    "===========================删除deleteUnitLink=============================================" +
+                    "================================删除deleteUnitLink==========================================================");
             service.deleteUnitLink(user.getUid(), datacode.getDataid());
             String resp = DNYAPI.GetUnitLinkByDataType(user.getUid(), String.valueOf(datacode.getDataid()), 1, user.getToken());
+            if (user.getUid().equals("110236")){
+                System.out.println("GetUnitLinkByDataType=============IO是1===========================" +user.getName()+
+                        "==========================GetUnitLinkByDataType================IO是1=============================" +user.getPass()+
+                        "==========================GetUnitLinkByDataType================IO是1=============================" +user.getUid()+
+                        "===========================GetUnitLinkByDataType===============IO是1==============================" +
+                        "================================GetUnitLinkByDataType============IO是1=============================================="+resp);
+            }
 
 
             dealUnitLink(user, datacode, 1, JSON.parseObject(resp));
 
             resp = DNYAPI.GetUnitLinkByDataType(user.getUid(), String.valueOf(datacode.getDataid()), 0, user.getToken());
+            if (user.getUid().equals("110236")){
+                System.out.println("GetUnitLinkByDataType============resp1=========IO是0===================" +user.getName()+
+                        "==========================GetUnitLinkByDataType=============resp1==========IO是0======================"  +user.getPass()+
+                        "==========================GetUnitLinkByDataType===============resp1=========IO是0=====================" +user.getUid()+
+                        "===========================GetUnitLinkByDataType==============resp1==========IO是0=====================" +
+                        "================================GetUnitLinkByDataType===============resp1===========IO是0================================"+resp);
+            }
 
             dealUnitLink(user, datacode, 0, JSON.parseObject(resp));
         }
@@ -277,6 +299,14 @@ public class GetWaterData {
             unitlink.setDataid(datacode.getDataid());
             unitlink.setIo(io);
             unitlink.save();
+            if (user.getUid().equals("110236")){
+                System.out.println("unitlink保存============unitlink保存=======银邦金属=====================" +
+                        "==========================unitlink保存=============unitlink保存===================银邦金属=============" +
+                        "==========================unitlink保存===============unitlink保存=================银邦金属=============" +
+                        "===========================unitlink保存==============unitlink保存==================银邦金属=============" +
+                        "================================unitlink保存===============unitlink保存============银邦金属===============================");
+            }
+
 
             if (cujo.containsKey("cu")) {
                 dealUnitLink(user, datacode, io, cujo);

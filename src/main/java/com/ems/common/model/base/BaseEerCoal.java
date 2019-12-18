@@ -41,4 +41,12 @@ public abstract class BaseEerCoal<M extends BaseEerCoal<M>> extends Model<M> imp
 		return getStr("userid");
 	}
 
+	public void setIsCalculate(java.lang.String isCalculate) {
+		set("isCalculate", isCalculate);
+	}
+	
+	public java.lang.String getIsCalculate() {
+		return getStr("isCalculate");
+	}
+
 }

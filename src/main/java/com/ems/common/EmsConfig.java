@@ -113,7 +113,7 @@ public class EmsConfig extends JFinalConfig {
 		// 配置ActiveRecord插件
 		cp.addTask("1 1 * * *", new com.ems.job.GetBaseData());//每天1点更新基础信息
 		//cp.addTask("*/5 * * * *", new com.ems.job.GetBaseData());
-		cp.addTask("1 1 * * *", new com.ems.job.GetLastDayData());//每天1点获取昨日数据
+		cp.addTask("1 2 * * *", new com.ems.job.GetLastDayData());//每天1点获取昨日数据
 		//cp.addTask("*/6 * * * *", new com.ems.job.GetLastDayData());
 		cp.addTask("1,15,30,45 * * * *", new com.ems.job.GetDayData());//每十五分钟获取当日数据和当月数据
 		//cp.addTask("*/7 * * * *", new com.ems.job.GetDayData());  //每一分钟执行一次，测试用
@@ -122,8 +122,8 @@ public class EmsConfig extends JFinalConfig {
 		cp.addTask("1,15,30,45 * * * *", new com.ems.job.GetWarningData());//获取预警数据
 		//cp.addTask("*/9 * * * *", new com.ems.job.GetWarningData());
 	//	cp.addTask("1,15,30,45 * * * *", new GetPlatFormCompany());//获取账号数据
-		cp.addTask("1 1 * * *", new GetPlatFormCompany());
-		cp.addTask("1 1 * * *", new GetUserToken());//模拟用户登录
+		cp.addTask("1 3 * * *", new GetPlatFormCompany());
+		cp.addTask("1 4 * * *", new GetUserToken());//模拟用户登录
 		//cp.addTask("*/30 * * * *", new GetUserToken());
 
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);

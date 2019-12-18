@@ -97,6 +97,14 @@ public abstract class BaseWarningInfo<M extends BaseWarningInfo<M>> extends Mode
 		return getStr("warningname");
 	}
 
+	public void setAddtime(java.util.Date addtime) {
+		set("addtime", addtime);
+	}
+	
+	public java.util.Date getAddtime() {
+		return get("addtime");
+	}
+
 	public void setWarningvalue(java.lang.String warningvalue) {
 		set("warningvalue", warningvalue);
 	}
@@ -111,14 +119,6 @@ public abstract class BaseWarningInfo<M extends BaseWarningInfo<M>> extends Mode
 	
 	public java.lang.String getWaringsettingvalue() {
 		return getStr("waringsettingvalue");
-	}
-
-	public void setAddtime(java.util.Date addtime) {
-		set("addtime", addtime);
-	}
-	
-	public java.util.Date getAddtime() {
-		return get("addtime");
 	}
 
 }

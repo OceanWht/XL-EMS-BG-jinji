@@ -125,6 +125,10 @@ public class DataService {
 
         return Db.queryStr("select  GROUP_CONCAT(dataid) from  xl_datacode where userid='"+userid+"'");
     }
+    public String getUIDs(){
+        return Db.queryStr("select  GROUP_CONCAT(uid) from  ems_company");
+    }
+
     public  String getUids(){
 
         return Db.queryStr("select  GROUP_CONCAT(uid) from  userinfo");
@@ -138,6 +142,9 @@ public class DataService {
         return   new XlGroupanalog().dao().find("select * from xl_groupanalog where  userid='"+userid+"'");
     }
 
+    public List<EmsCompany> getAllCompany(){
+        return new EmsCompany().dao().find("select *  from ems_company");
+    }
 
     public  void DealBaseData(){
 

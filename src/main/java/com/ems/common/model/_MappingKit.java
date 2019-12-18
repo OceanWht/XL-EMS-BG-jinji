@@ -16,6 +16,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 	
 	public static void mapping(ActiveRecordPlugin arp) {
+		arp.addMapping("cthy_devices_info", "deviceNo", CthyDevicesInfo.class);
 		arp.addMapping("eer_base", "id", EerBase.class);
 		arp.addMapping("eer_coal", "id", EerCoal.class);
 		arp.addMapping("eer_tubenet", "id", EerTubenet.class);
@@ -31,6 +32,7 @@ public class _MappingKit {
 		arp.addMapping("ems_taskconfig", "Id", EmsTaskconfig.class);
 		// Composite Primary Key order: type,unitId
 		arp.addMapping("ems_unit", "type,unitId", EmsUnit.class);
+		arp.addMapping("ems_unitcalcgroup", "id", EmsUnitcalcgroup.class);
 		arp.addMapping("ems_user", "ID", EmsUser.class);
 		arp.addMapping("fee_item", "Id", FeeItem.class);
 		arp.addMapping("userinfo", "Id", Userinfo.class);
@@ -38,8 +40,10 @@ public class _MappingKit {
 		arp.addMapping("usertoken", "Id", Usertoken.class);
 		arp.addMapping("warning_info", "id", WarningInfo.class);
 		arp.addMapping("warning_setting", "id", WarningSetting.class);
+		arp.addMapping("warter_meter_input", "did", WarterMeterInput.class);
 		arp.addMapping("xl_account", "id", XlAccount.class);
 		arp.addMapping("xl_aid_did", "id", XlAidDid.class);
+		arp.addMapping("xl_analog_transfer", "analogid", XlAnalogTransfer.class);
 		arp.addMapping("xl_analogdoc", "id", XlAnalogdoc.class);
 		arp.addMapping("xl_datacode", "id", XlDatacode.class);
 		arp.addMapping("xl_daydata", "id", XlDaydata.class);
@@ -54,6 +58,9 @@ public class _MappingKit {
 		arp.addMapping("xl_unitlink", "id", XlUnitlink.class);
 		arp.addMapping("xl_unitlink_e", "id", XlUnitlinkE.class);
 		arp.addMapping("xl_units", "id", XlUnits.class);
+		arp.addMapping("xl_zhzt_counter", "id", XlZhztCounter.class);
+		arp.addMapping("xl_zhzt_user", "customer", XlZhztUser.class);
+		arp.addMapping("xl_zhzt_warter", "counterId", XlZhztWarter.class);
 	}
 }
 
